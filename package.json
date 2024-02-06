@@ -1,0 +1,80 @@
+{
+  "author": "davetech @thatjsprof",
+  "bin": {
+    "whpcli": "./bin/run.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-api-gateway": "^3.503.1",
+    "@aws-sdk/credential-provider-ini": "^3.496.0",
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^4",
+    "@types/listr": "^0.14.9",
+    "dotenv": "^16.4.1",
+    "inquirer": "^9.2.12",
+    "listr": "^0.14.3",
+    "ora": "^8.0.1"
+  },
+  "description": "CLI app for the webhooks plug infrastructure",
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/inquirer": "^9.0.7",
+    "@types/mocha": "^10",
+    "@types/node": "^18",
+    "@types/opn": "^5.5.0",
+    "chai": "^4",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
+    "mocha": "^10",
+    "oclif": "^4.3.6",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/webhooks-plug/webhooks-plug-cli",
+  "license": "MIT",
+  "main": "",
+  "name": "whpcli",
+  "oclif": {
+    "bin": "whpcli",
+    "dirname": "whpcli",
+    "commands": "./dist/commands",
+    "topicSeparator": " ",
+    "topics": {
+      "deploy": {
+        "description": "Deploy the webhooks infrastructure to your AWS account"
+      }
+    }
+  },
+  "repository": "webhooks-plug/webhooks-plug-cli",
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "prepare": "yarn build",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "version": "0.0.4",
+  "bugs": "https://github.com/webhooks-plug/webhooks-plug-cli/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts",
+  "exports": "./lib/index.js",
+  "type": "module"
+}
