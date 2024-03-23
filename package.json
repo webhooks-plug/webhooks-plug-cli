@@ -4,7 +4,7 @@
     "whpcli": "./bin/run.js"
   },
   "dependencies": {
-    "@aws-sdk/client-api-gateway": "^3.503.1",
+    "@aws-sdk/client-api-gateway": "^3.540.0",
     "@aws-sdk/credential-provider-ini": "^3.496.0",
     "@oclif/core": "^3",
     "@oclif/plugin-help": "^6",
